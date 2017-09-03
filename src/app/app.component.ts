@@ -6,8 +6,8 @@ export class Tab {
 }
 
 const TABS: Tab[] = [
-  { label: '学生管理', link: '/dashboard' },
-  { label: '教练管理', link: '/heroes' },
+  { label: '学生管理', link: '/students' },
+  { label: '教练管理', link: '/dashboard' },
 ];
 
 @Component({

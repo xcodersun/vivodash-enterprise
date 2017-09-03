@@ -5,12 +5,12 @@ import { Hero } from './hero';
 import { HeroService } from './hero.service';
 
 @Component({
-  selector: 'my-heroes',
-  templateUrl: './heroes.component.html',
-  styleUrls: ['./heroes.component.css']
+  selector: 'students',
+  templateUrl: './students.component.html',
+  styleUrls: ['./students.component.css']
 })
 
-export class HeroesComponent implements OnInit {
+export class StudentsComponent implements OnInit {
   heroes: Hero[];
   selectedHero: Hero;
 

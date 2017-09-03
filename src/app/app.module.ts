@@ -13,9 +13,9 @@ import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard.component';
+import { CoachesComponent } from './coaches.component';
 import { HeroDetailComponent } from './hero-detail.component';
-import { HeroesComponent } from './heroes.component';
+import { StudentsComponent } from './students.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { HeroService } from './hero.service';
 
@@ -31,9 +31,9 @@ import { HeroService } from './hero.service';
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
+    CoachesComponent,
     HeroDetailComponent,
-    HeroesComponent,
+    StudentsComponent,
     HeroSearchComponent
   ],
   providers: [
