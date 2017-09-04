@@ -1,10 +1,17 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { FlexLayoutModule } from "@angular/flex-layout";
 import { FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
 
-import { MdTabsModule } from '@angular/material';
+import {
+  MdButtonModule,
+  MdCardModule,
+  MdInputModule,
+  MdTabsModule,
+  MdToolbarModule,
+} from '@angular/material';
 
 import { AppRoutingModule }     from './app-routing.module';
 
@@ -14,8 +21,12 @@ import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { CoachesComponent } from './coaches.component';
-import { HeroDetailComponent } from './hero-detail.component';
+import { LoginComponent } from './login/login.component';
 import { StudentsComponent } from './students.component';
+
+import { AuthenticationService } from './services/authentication.service';
+
+import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { HeroService } from './hero.service';
 
@@ -23,7 +34,12 @@ import { HeroService } from './hero.service';
   imports: [
     BrowserModule,
     BrowserAnimationsModule, // some Material components dependency
+    FlexLayoutModule,
+    MdButtonModule,
+    MdCardModule,
+    MdInputModule,
     MdTabsModule,
+    MdToolbarModule,
     FormsModule, // import the FormsModule before binding with [(ngModel)]
     HttpModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService),
@@ -32,11 +48,13 @@ import { HeroService } from './hero.service';
   declarations: [
     AppComponent,
     CoachesComponent,
-    HeroDetailComponent,
+    LoginComponent,
     StudentsComponent,
+    HeroDetailComponent,
     HeroSearchComponent
   ],
   providers: [
+    AuthenticationService,
     HeroService
   ],
   bootstrap: [AppComponent]

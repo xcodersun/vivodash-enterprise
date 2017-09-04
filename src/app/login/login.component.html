@@ -1,0 +1,16 @@
+<div class="flex-container" fxLayout="column" fxLayoutAlign="center center">
+  <md-toolbar class="toolbar-width" color="primary">
+    <span>万沃唯尔企业版登录</span>
+  </md-toolbar>
+  <md-card class="flex-item login-card-width">
+    <md-card-content>
+      <md-form-field class="input-full-width">
+        <input mdInput [(ngModel)]="user.username" placeholder="用户名"/>
+      </md-form-field>
+      <md-form-field class="input-full-width">
+          <input mdInput [(ngModel)]="user.password" placeholder="密码"/>
+        </md-form-field>
+    </md-card-content>
+    <button md-raised-button color="primary" (click)="login()">登录</button>
+  </md-card>
+</div>

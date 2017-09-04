@@ -1,15 +1,12 @@
-<nav md-tab-nav-bar>
-  <a md-tab-link
-     *ngFor="let tab of tabs"
-     [routerLink]="tab.link"
-     routerLinkActive #rla="routerLinkActive"
-     [active]="rla.isActive">
-     {{tab.label}}
-  </a>
-</nav>
+<div *ngIf="isLoggedIn(); else login">
+  <nav md-tab-nav-bar>
+    <a md-tab-link
+      *ngFor="let tab of tabs"
+      [routerLink]="tab.link"
+      routerLinkActive #rla="routerLinkActive"
+      [active]="rla.isActive">
+      {{tab.label}}
+    </a>
+  </nav>
+</div>
 <router-outlet></router-outlet>
-<!--h1>{{title}}</h1>
-<nav>
-  <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
-  <a routerLink="/heroes" routerLinkActive="active">Heroes</a>
-</nav-->

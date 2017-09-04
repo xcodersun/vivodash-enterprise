@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 
+import { AuthenticationService } from './services/authentication.service';
+
 export class Tab {
   label: string;
   link: string;
@@ -19,4 +21,9 @@ const TABS: Tab[] = [
 export class AppComponent {
   title = 'Tour of Heroes';
   tabs = TABS;
+  
+  constructor(private authenticationService: AuthenticationService) {}
+  isLoggedIn() {
+    return this.authenticationService.login();
+  }
 }
