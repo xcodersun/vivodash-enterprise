@@ -24,6 +24,6 @@ export class AppComponent {
   
   constructor(private authenticationService: AuthenticationService) {}
   isLoggedIn() {
-    return this.authenticationService.login();
+    return this.authenticationService.isLogin();
   }
 }

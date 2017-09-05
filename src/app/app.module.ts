@@ -16,7 +16,7 @@ import {
 import { AppRoutingModule }     from './app-routing.module';
 
 // Imports for loading & configuring the in-memory web api
-import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+// import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
@@ -42,7 +42,7 @@ import { HeroService } from './hero.service';
     MdToolbarModule,
     FormsModule, // import the FormsModule before binding with [(ngModel)]
     HttpModule,
-    InMemoryWebApiModule.forRoot(InMemoryDataService),
+    //InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [
