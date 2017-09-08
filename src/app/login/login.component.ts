@@ -30,7 +30,7 @@ export class LoginComponent {
         .login(this.encrypt.encrypt(JSON.stringify(this.user)))
         .subscribe(
           authtoken => {
-            localStorage.setItem('authtoken', authtoken.authtoken);
+            localStorage.setItem('authtoken', authtoken.token);
           },
           error => {
             console.log(error);
