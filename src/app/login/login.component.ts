@@ -25,12 +25,16 @@ export class LoginComponent {
   constructor(private authenticationService: AuthenticationService) {}
 
   login(): void {
-    console.log(this.user);
     this.encrypt.setPublicKey(publickey);
     this.authenticationService
         .login(this.encrypt.encrypt(JSON.stringify(this.user)))
-        .then(authtoken => {
-          console.log(authtoken);
-        });
+        .subscribe(
+          authtoken => {
+            localStorage.setItem('authtoken', authtoken.authtoken);
+          },
+          error => {
+            console.log(error);
+          }
+        );
   }
 }

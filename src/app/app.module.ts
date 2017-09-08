@@ -13,7 +13,8 @@ import {
   MdToolbarModule,
 } from '@angular/material';
 
-import { AppRoutingModule }     from './app-routing.module';
+import { AppRoutingModule }     from './routes/app-routing.module';
+import { AuthGuard } from './routes/auth.guard';
 
 // Imports for loading & configuring the in-memory web api
 // import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
@@ -55,6 +56,7 @@ import { HeroService } from './hero.service';
   ],
   providers: [
     AuthenticationService,
+    AuthGuard,
     HeroService
   ],
   bootstrap: [AppComponent]

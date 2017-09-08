@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 import { AuthToken } from '../model/auth-token';
 import { User } from '../model/user';
@@ -19,13 +20,11 @@ export class AuthenticationService {
     return false;
   }
 
-  login(ciphertext: string): Promise<AuthToken> {
+  login(ciphertext: string): Observable<AuthToken> {
     const url = 'http://localhost:8080/api/login';
     const headers = new Headers({'Authorization': ciphertext});
     return this.http
                .get(url, {headers: headers})
-               .toPromise()
-               .then(res => res.json() as AuthToken)
-               .catch(this.handleError);
+               .map(res => res.json() as AuthToken);
   }
 }
