@@ -26,6 +26,7 @@ import { LoginComponent } from './login/login.component';
 import { StudentsComponent } from './students/students.component';
 
 import { AuthenticationService } from './services/authentication.service';
+import { StudentService } from './services/student.service';
 
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
@@ -59,6 +60,7 @@ import { BasicLayoutComponent } from './dashboard/basic-layout.component';
   providers: [
     AuthenticationService,
     AuthGuard,
+    StudentService,
     HeroService
   ],
   bootstrap: [AppComponent]

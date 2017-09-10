@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { StudentService } from '../services/student.service';
 
 @Component({
   selector: 'students',
@@ -11,21 +10,24 @@ import { HeroService } from '../hero.service';
 })
 
 export class StudentsComponent implements OnInit {
-  heroes: Hero[];
-  selectedHero: Hero;
 
   constructor(
     private router: Router,
-    private heroService: HeroService) {}
+    private studentService: StudentService) {}
 
   ngOnInit(): void {
     this.getStudents();
   }
 
   getStudents(): void {
-    this.heroService.getHeroes().then(heroes => this.heroes = heroes);
+    this.studentService.getStudents().subscribe(
+      students => {
+        console.log(students);
+      }
+    );
   }
 
+  /*
   onSelect(hero: Hero): void {
     this.selectedHero = hero;
   }
@@ -52,4 +54,5 @@ export class StudentsComponent implements OnInit {
           if (this.selectedHero === hero) { this.selectedHero = null; }
         });
   }
+  */
 }
