@@ -1,12 +1,12 @@
-import { NgModule }             from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth.guard';
 import { BasicLayoutComponent } from '../dashboard/basic-layout.component';
-import { CoachesComponent }   from '../coaches.component';
+import { CoachesComponent } from '../coaches.component';
 import { LoginComponent } from '../login/login.component';
-import { StudentsComponent }      from '../students/students.component';
-import { HeroDetailComponent }  from '../hero-detail.component';
+import { StudentsComponent } from '../students/students.component';
+import { HeroDetailComponent } from '../hero-detail.component';
 
 const routes: Routes = [
   { path: '', component: BasicLayoutComponent, pathMatch: 'full', canActivate: [AuthGuard] },

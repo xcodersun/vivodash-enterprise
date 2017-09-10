@@ -14,13 +14,13 @@ e4vKYJ/EFOHpJ+xDTwIDAQAB
 -----END PUBLIC KEY-----`;
 
 @Component ({
-  selector: 'login',
+  selector: 'app-ve-login',
   styleUrls: ['./login.component.css'],
   templateUrl: './login.component.html',
 })
 
 export class LoginComponent {
-  @Input() user: User = { username: "", password: "" };
+  @Input() user: User = { username: '', password: '' };
   encrypt = new JSEncrypt();
 
   constructor(

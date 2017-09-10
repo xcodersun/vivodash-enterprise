@@ -8,7 +8,7 @@ import 'rxjs/add/observable/throw';
 
 import { AuthToken } from '../model/auth-token';
 import { User } from '../model/user';
- 
+
 @Injectable()
 export class AuthenticationService {
   constructor(private http: Http) { }
@@ -24,7 +24,7 @@ export class AuthenticationService {
                .get(url, {headers: headers})
                .map(res => res.json() as AuthToken)
                .catch(res => {
-                 if (res.status == 401) {
+                 if (res.status === 401) {
                   localStorage.removeItem('authtoken');
                  }
                  return Observable.throw(res);

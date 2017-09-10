@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FlexLayoutModule } from "@angular/flex-layout";
+import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule} from '@angular/forms'; // <-- NgModel lives here
 import { HttpModule } from '@angular/http';
 
@@ -13,7 +13,7 @@ import {
   MdToolbarModule,
 } from '@angular/material';
 
-import { AppRoutingModule }     from './routes/app-routing.module';
+import { AppRoutingModule } from './routes/app-routing.module';
 import { AuthGuard } from './routes/auth.guard';
 
 // Imports for loading & configuring the in-memory web api
@@ -45,7 +45,7 @@ import { BasicLayoutComponent } from './dashboard/basic-layout.component';
     MdToolbarModule,
     FormsModule, // import the FormsModule before binding with [(ngModel)]
     HttpModule,
-    //InMemoryWebApiModule.forRoot(InMemoryDataService),
+    // InMemoryWebApiModule.forRoot(InMemoryDataService),
     AppRoutingModule
   ],
   declarations: [

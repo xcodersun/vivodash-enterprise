@@ -21,7 +21,7 @@ export class StudentService {
                .get(url, {headers: headers})
                .map(res => res.json())
                .catch(res => {
-                 if (res.status == 401) {
+                 if (res.status === 401) {
                    localStorage.removeItem('authtoken');
                    this.router.navigate(['/login']);
                   }
