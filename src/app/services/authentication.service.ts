@@ -3,6 +3,8 @@ import { Headers, Http } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/throw';
 
 import { AuthToken } from '../model/auth-token';
 import { User } from '../model/user';
@@ -11,17 +13,8 @@ import { User } from '../model/user';
 export class AuthenticationService {
   constructor(private http: Http) { }
 
-  private handleError(error: any): Promise<any> {
-    console.error('An error occurred', error); // for demo purposes only
-    return Promise.reject(error.message || error);
-  }
-
   isLogin(): boolean {
-    if (localStorage.getItem('authtoken')) {
-      return true;
-    } else {
-      return false;
-    }
+    return localStorage.getItem('authtoken') ? true : false;
   }
 
   login(ciphertext: string): Observable<AuthToken> {
@@ -29,6 +22,12 @@ export class AuthenticationService {
     const headers = new Headers({'Authorization': ciphertext});
     return this.http
                .get(url, {headers: headers})
-               .map(res => res.json() as AuthToken);
+               .map(res => res.json() as AuthToken)
+               .catch(res => {
+                 if (res.status == 401) {
+                  localStorage.removeItem('authtoken');
+                 }
+                 return Observable.throw(res);
+               });
   }
 }

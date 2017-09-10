@@ -35,9 +35,6 @@ export class LoginComponent {
           authtoken => {
             localStorage.setItem('authtoken', authtoken.token);
             this.router.navigate(['/dashboard']);
-          },
-          error => {
-            console.log(error);
           }
         );
   }
