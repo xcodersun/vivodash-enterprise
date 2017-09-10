@@ -17,7 +17,11 @@ export class AuthenticationService {
   }
 
   isLogin(): boolean {
-    return false;
+    if (localStorage.getItem('authtoken')) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
   login(ciphertext: string): Observable<AuthToken> {

@@ -1,4 +1,5 @@
-import { Component, Input, VERSION } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../services/authentication.service';
 import { User } from '../model/user';
@@ -22,7 +23,9 @@ export class LoginComponent {
   @Input() user: User = { username: "", password: "" };
   encrypt = new JSEncrypt();
 
-  constructor(private authenticationService: AuthenticationService) {}
+  constructor(
+    private router: Router,
+    private authenticationService: AuthenticationService) {}
 
   login(): void {
     this.encrypt.setPublicKey(publickey);
@@ -31,6 +34,7 @@ export class LoginComponent {
         .subscribe(
           authtoken => {
             localStorage.setItem('authtoken', authtoken.token);
+            this.router.navigate(['/students']);
           },
           error => {
             console.log(error);

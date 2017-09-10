@@ -23,7 +23,7 @@ import { InMemoryDataService } from './in-memory-data.service';
 import { AppComponent } from './app.component';
 import { CoachesComponent } from './coaches.component';
 import { LoginComponent } from './login/login.component';
-import { StudentsComponent } from './students.component';
+import { StudentsComponent } from './students/students.component';
 
 import { AuthenticationService } from './services/authentication.service';
 
