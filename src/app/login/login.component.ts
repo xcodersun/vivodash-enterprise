@@ -34,7 +34,7 @@ export class LoginComponent {
         .subscribe(
           authtoken => {
             localStorage.setItem('authtoken', authtoken.token);
-            this.router.navigate(['/students']);
+            this.router.navigate(['/dashboard']);
           },
           error => {
             console.log(error);

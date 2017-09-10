@@ -30,6 +30,7 @@ import { AuthenticationService } from './services/authentication.service';
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { HeroService } from './hero.service';
+import { BasicLayoutComponent } from './dashboard/basic-layout.component';
 
 @NgModule({
   imports: [
@@ -52,7 +53,8 @@ import { HeroService } from './hero.service';
     LoginComponent,
     StudentsComponent,
     HeroDetailComponent,
-    HeroSearchComponent
+    HeroSearchComponent,
+    BasicLayoutComponent
   ],
   providers: [
     AuthenticationService,
