@@ -58,7 +58,10 @@ export class StudentsComponent implements OnInit {
   */
 }
 
-/** The student database that the data source uses to retrieve data for the table. */
+/**
+ * The student database that the data source uses to retrieve data for the table.
+ * It is the class that manage the student data.
+ */
 export class StudentHttpDatabase {
   constructor(private _studentService: StudentService) { }
   getStudents(): Observable<Student[]> {
@@ -69,7 +72,7 @@ export class StudentHttpDatabase {
 /**
  * Data source to provide what data should be rendered in the table. Note that the data source
  * can retrieve its data in any way. In this case, the data source is provided a reference
- * to a common data base, ExampleHttpDatabase. It is not the data source's responsibility to manage
+ * to a common data base, StudentHttpDatabase. It is not the data source's responsibility to manage
  * the underlying data. Instead, it only needs to take the data and send the table exactly what
  * should be rendered.
  */
