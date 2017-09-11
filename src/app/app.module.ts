@@ -9,9 +9,13 @@ import {
   MdButtonModule,
   MdCardModule,
   MdInputModule,
+  MdOptionModule,
   MdTabsModule,
+  MdTableModule,
   MdToolbarModule,
+  MdSelectModule,
 } from '@angular/material';
+import { CdkTableModule } from '@angular/cdk/table';
 
 import { AppRoutingModule } from './routes/app-routing.module';
 import { AuthGuard } from './routes/auth.guard';
@@ -37,12 +41,16 @@ import { BasicLayoutComponent } from './dashboard/basic-layout.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule, // some Material components dependency
+    CdkTableModule,
     FlexLayoutModule,
     MdButtonModule,
     MdCardModule,
     MdInputModule,
+    MdOptionModule,
     MdTabsModule,
+    MdTableModule,
     MdToolbarModule,
+    MdSelectModule,
     FormsModule, // import the FormsModule before binding with [(ngModel)]
     HttpModule,
     // InMemoryWebApiModule.forRoot(InMemoryDataService),
@@ -50,12 +58,12 @@ import { BasicLayoutComponent } from './dashboard/basic-layout.component';
   ],
   declarations: [
     AppComponent,
+    BasicLayoutComponent,
     CoachesComponent,
     LoginComponent,
     StudentsComponent,
     HeroDetailComponent,
     HeroSearchComponent,
-    BasicLayoutComponent
   ],
   providers: [
     AuthenticationService,

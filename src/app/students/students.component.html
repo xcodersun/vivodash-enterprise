@@ -1,21 +1,34 @@
-<div>
-  <label>Hero name:</label> <input #heroName />
-  <button (click)="add(heroName.value); heroName.value=''">
-    Add
-  </button>
-</div>
-<ul class="heroes">
-  <li *ngFor="let hero of heroes"
-      [class.selected]="hero === selectedHero"
-      (click)="onSelect(hero)">
-    <span class="badge">{{hero.id}}</span>{{hero.name}}
-    <button class="delete"
-            (click)="delete(hero); $event.stopPropagation()">x</button>
-  </li>
-</ul>
-<div *ngIf="selectedHero">
-  <h2>
-    {{selectedHero.name | uppercase}} is my hero
-  </h2>
-  <button (click)="gotoDetail()">View Details</button>
+<div class="table-container mat-elevation-z8">
+  <md-table #table [dataSource]="dataSource">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+
+    <!-- Student Id Column -->
+    <ng-container cdkColumnDef="id">
+      <md-header-cell *cdkHeaderCellDef> 学号 </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.student_id}} </md-cell>
+    </ng-container>
+
+    <!-- Student Name Column -->
+    <ng-container cdkColumnDef="name">
+      <md-header-cell *cdkHeaderCellDef> 姓名 </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.name}} </md-cell>
+    </ng-container>
+
+    <!-- Student Age Column -->
+    <ng-container cdkColumnDef="age">
+      <md-header-cell *cdkHeaderCellDef> 年龄 </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.age}} </md-cell>
+    </ng-container>
+
+    <!-- Student Age Column -->
+    <ng-container cdkColumnDef="projects">
+      <md-header-cell *cdkHeaderCellDef> 项目 </md-header-cell>
+      <md-cell *cdkCellDef="let row"> {{row.projects[0].name}}</md-cell>
+    </ng-container>
+
+    <md-header-row *cdkHeaderRowDef="displayedColumns"></md-header-row>
+    <md-row *cdkRowDef="let row; columns: displayedColumns;"></md-row>
+  </md-table>
 </div>

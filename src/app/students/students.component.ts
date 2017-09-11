@@ -1,6 +1,13 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
+import { DataSource } from '@angular/cdk/table';
+import { Response } from '@angular/http';
 import { Router } from '@angular/router';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+
+import { Student } from '../model/student';
 import { StudentService } from '../services/student.service';
 
 @Component({
@@ -10,22 +17,16 @@ import { StudentService } from '../services/student.service';
 })
 
 export class StudentsComponent implements OnInit {
+  displayedColumns = ['id', 'name', 'age', 'projects'];
+  studentDatabase: StudentHttpDatabase | null;
+  dataSource: StudentDataSource | null;
 
-  constructor(
-    private router: Router,
-    private studentService: StudentService) {}
+  constructor(private _studentService: StudentService) {
+      this.studentDatabase = new StudentHttpDatabase(_studentService);
+      this.dataSource = new StudentDataSource(this.studentDatabase);
+    }
 
-  ngOnInit(): void {
-    this.getStudents();
-  }
-
-  getStudents(): void {
-    this.studentService.getStudents().subscribe(
-      students => {
-        console.log(students);
-      }
-    );
-  }
+  ngOnInit(): void { }
 
   /*
   onSelect(hero: Hero): void {
@@ -55,4 +56,32 @@ export class StudentsComponent implements OnInit {
         });
   }
   */
+}
+
+/** The student database that the data source uses to retrieve data for the table. */
+export class StudentHttpDatabase {
+  constructor(private _studentService: StudentService) { }
+  getStudents(): Observable<Student[]> {
+    return this._studentService.getStudents();
+  }
+}
+
+/**
+ * Data source to provide what data should be rendered in the table. Note that the data source
+ * can retrieve its data in any way. In this case, the data source is provided a reference
+ * to a common data base, ExampleHttpDatabase. It is not the data source's responsibility to manage
+ * the underlying data. Instead, it only needs to take the data and send the table exactly what
+ * should be rendered.
+ */
+export class StudentDataSource extends DataSource<Student> {
+  constructor(private _studentHttpDatabase: StudentHttpDatabase) {
+    super();
+  }
+
+  /** Connect function called by the table to retrieve one stream containing the data to render. */
+  connect(): Observable<Student[]> {
+    return this._studentHttpDatabase.getStudents();
+  }
+
+  disconnect() {}
 }
