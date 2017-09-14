@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-import { Student } from '../model/student';
-import { StudentService } from '../services/student.service';
+import { Student } from '../../model/student';
+import { StudentService } from '../../services/student.service';
 
 @Component({
   selector: 'students',

@@ -5,7 +5,7 @@ import { AuthGuard } from './auth.guard';
 import { BasicLayoutComponent } from '../dashboard/basic-layout.component';
 import { CoachesComponent } from '../coaches.component';
 import { LoginComponent } from '../login/login.component';
-import { StudentsComponent } from '../students/students.component';
+import { StudentsComponent } from '../dashboard/students/students.component';
 import { HeroDetailComponent } from '../hero-detail.component';
 
 const routes: Routes = [
