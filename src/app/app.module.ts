@@ -34,6 +34,9 @@ import { AuthenticationService } from './services/authentication.service';
 import { CoachService } from './services/coach.service';
 import { StudentService } from './services/student.service';
 
+import { CoachTitlePipe } from './utils/coach-title.pipe';
+import { CoachStatusPipe } from './utils/coach-status.pipe';
+
 // TODO(alex): Need to remove following imports.
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
@@ -64,6 +67,8 @@ import { HeroService } from './hero.service';
     CoachesComponent,
     LoginComponent,
     StudentsComponent,
+    CoachTitlePipe,
+    CoachStatusPipe,
     HeroDetailComponent,
     HeroSearchComponent,
   ],
