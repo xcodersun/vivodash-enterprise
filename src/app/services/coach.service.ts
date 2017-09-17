@@ -21,10 +21,7 @@ export class CoachService {
     const url = 'http://localhost:8080/api/coaches';
     return this.http
                .get(url, {headers: headers})
-               .map(res => {
-                 console.log(res);
-                 return res.json();
-               })
+               .map(res => res.json())
                .catch(res => {
                  if (res.status === 401) {
                    localStorage.removeItem('authtoken');
