@@ -25,17 +25,19 @@ import { AuthGuard } from './routes/auth.guard';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
-import { CoachesComponent } from './coaches.component';
+import { BasicLayoutComponent } from './dashboard/basic-layout.component';
+import { CoachesComponent } from './dashboard/coaches/coaches.component';
 import { LoginComponent } from './login/login.component';
 import { StudentsComponent } from './dashboard/students/students.component';
 
 import { AuthenticationService } from './services/authentication.service';
+import { CoachService } from './services/coach.service';
 import { StudentService } from './services/student.service';
 
+// TODO(alex): Need to remove following imports.
 import { HeroDetailComponent } from './hero-detail.component';
 import { HeroSearchComponent } from './hero-search.component';
 import { HeroService } from './hero.service';
-import { BasicLayoutComponent } from './dashboard/basic-layout.component';
 
 @NgModule({
   imports: [
@@ -69,6 +71,7 @@ import { BasicLayoutComponent } from './dashboard/basic-layout.component';
     AuthenticationService,
     AuthGuard,
     StudentService,
+    CoachService,
     HeroService
   ],
   bootstrap: [AppComponent]

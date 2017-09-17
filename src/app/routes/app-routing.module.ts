@@ -3,9 +3,11 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { AuthGuard } from './auth.guard';
 import { BasicLayoutComponent } from '../dashboard/basic-layout.component';
-import { CoachesComponent } from '../coaches.component';
+import { CoachesComponent } from '../dashboard/coaches/coaches.component';
 import { LoginComponent } from '../login/login.component';
 import { StudentsComponent } from '../dashboard/students/students.component';
+
+// TODO(alex): need to remove following import.
 import { HeroDetailComponent } from '../hero-detail.component';
 
 const routes: Routes = [

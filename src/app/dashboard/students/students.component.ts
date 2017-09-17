@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
 import { Response } from '@angular/http';
 import { Router } from '@angular/router';
