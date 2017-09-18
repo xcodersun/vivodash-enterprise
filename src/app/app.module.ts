@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { StudentsComponent } from './dashboard/students/students.component';
 
 import { AuthenticationService } from './services/authentication.service';
+import { HttpWrapperService } from './services/http-wrapper.service';
 import { CoachService } from './services/coach.service';
 import { StudentService } from './services/student.service';
 
@@ -56,6 +57,7 @@ import { HeroService } from './hero.service';
   providers: [
     AuthenticationService,
     AuthGuard,
+    HttpWrapperService,
     StudentService,
     CoachService,
     HeroService
