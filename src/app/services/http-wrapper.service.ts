@@ -7,8 +7,6 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
-const headers = new Headers({'Authentication': localStorage.getItem('authtoken')});
-
 /**
  * The main purpose of http wrapper service is to
  *   - add authentication headers to the request.
@@ -24,6 +22,7 @@ export class HttpWrapperService {
   ) {  }
 
   httpGet(url: string): Observable<any> {
+    var headers = new Headers({'Authentication': localStorage.getItem('authtoken')});
     return this.http
       .get(url, {headers: headers})
       .map(res => res)
