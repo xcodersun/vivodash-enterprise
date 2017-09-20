@@ -15,9 +15,6 @@ export class StudentService {
     const url = 'http://localhost:8080/api/students';
     return this._httpWrapper
       .httpGet(url)
-      .map(res => {
-        console.log(res)
-        return res.json()
-      });
+      .map(res => res.json());
   }
 }
