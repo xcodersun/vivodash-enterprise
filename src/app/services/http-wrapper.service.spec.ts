@@ -55,4 +55,5 @@ describe('HttpWrapperService', () => {
       body: JSON.stringify(mockResponse),
     })));
   });
+  // TODO(alex): need to test redirection.
 });

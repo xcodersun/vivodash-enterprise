@@ -34,4 +34,17 @@ export class HttpWrapperService {
         return Observable.throw(res);
       });
   }
+
+  httpAuth(url: string, authorization: string): Observable<any> {
+    const headers = new Headers({'Authorization': authorization});
+    return this.http
+      .get(url, {headers: headers})
+      .map(res => res)
+      .catch(res => {
+        if (res.status === 401) {
+          localStorage.removeItem('authtoken');
+        }
+        return Observable.throw(res);
+      });
+  }
 }

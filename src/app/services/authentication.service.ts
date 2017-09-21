@@ -7,11 +7,12 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
 
 import { AuthToken } from '../model/auth-token';
+import { HttpWrapperService } from './http-wrapper.service';
 import { User } from '../model/user';
 
 @Injectable()
 export class AuthenticationService {
-  constructor(private http: Http) { }
+  constructor(private _httpWrapper: HttpWrapperService,) { }
 
   isLogin(): boolean {
     return localStorage.getItem('authtoken') ? true : false;
@@ -19,15 +20,8 @@ export class AuthenticationService {
 
   login(ciphertext: string): Observable<AuthToken> {
     const url = 'http://localhost:8080/api/login';
-    const headers = new Headers({'Authorization': ciphertext});
-    return this.http
-               .get(url, {headers: headers})
-               .map(res => res.json() as AuthToken)
-               .catch(res => {
-                 if (res.status === 401) {
-                  localStorage.removeItem('authtoken');
-                 }
-                 return Observable.throw(res);
-               });
+    return this._httpWrapper
+      .httpAuth(url, ciphertext)
+      .map(res => res.json());
   }
 }
