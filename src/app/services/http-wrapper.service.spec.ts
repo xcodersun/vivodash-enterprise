@@ -1,5 +1,5 @@
 import { ReflectiveInjector } from '@angular/core';
-import { tick } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import {
   BaseRequestOptions,
   ConnectionBackend,
@@ -15,16 +15,22 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { HttpWrapperService } from './http-wrapper.service';
 
 describe('HttpWrapperService', () => {
+  let router = {
+    navigate: jasmine.createSpy('navigate')
+  }
   beforeEach(() => {
-    this.injector = ReflectiveInjector.resolveAndCreate([
-      { provide: ConnectionBackend, useClass: MockBackend },
-      { provide: RequestOptions, useClass: BaseRequestOptions},
-      { provide: Router, useClass: RouterTestingModule},
-      Http,
-      HttpWrapperService,
-    ]);
-    this.httpWrapperService = this.injector.get(HttpWrapperService);
-    this.mockBackend = this.injector.get(ConnectionBackend) as MockBackend;
+    TestBed.configureTestingModule({
+      providers: [
+        { provide: ConnectionBackend, useClass: MockBackend },
+        { provide: RequestOptions, useClass: BaseRequestOptions},
+        { provide: Router, useValue: router},
+        Http,
+        HttpWrapperService,
+      ]
+    });
+
+    this.httpWrapperService = TestBed.get(HttpWrapperService);
+    this.mockBackend = TestBed.get(ConnectionBackend) as MockBackend;
     this.mockBackend.connections.subscribe(
       (connection: any) => this.lastConnection = connection
     );
@@ -38,7 +44,7 @@ describe('HttpWrapperService', () => {
         { id: 3, name: 'charles', age: 12},
       ]
     };
-    this.httpWrapperService.httpGet('test').subscribe((resp) => {
+    this.httpWrapperService.httpGet('testData').subscribe((resp) => {
       var students = resp.json().data;
       expect(students.length).toBe(3);
       expect(students[0].id).toEqual(1, 'First student should have id 1');
@@ -55,5 +61,17 @@ describe('HttpWrapperService', () => {
       body: JSON.stringify(mockResponse),
     })));
   });
-  // TODO(alex): need to test redirection.
+
+  it('should redirect to /login', () => {
+    this.httpWrapperService.httpGet('redirect').subscribe(
+      () => {},
+      (error) => {
+        expect(error.status).toEqual(401);
+      }
+    );
+    this.lastConnection.mockError(new Response(new ResponseOptions({
+      status: 401,
+    })));
+    expect(router.navigate).toHaveBeenCalledWith(['/login']);
+  });
 });
