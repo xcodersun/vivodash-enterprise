@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 
 import { MOCKSTUDENTDATA } from '../test-data/mock-student-data';
+import { MOCKCOACHDATA } from '../test-data/mock-coach-data';
 
 /**
  * This is the mock class for MockHttpWrapperService
@@ -23,6 +24,9 @@ export class MockHttpWrapperService {
     switch (_url.pathname) {
       case '/api/students':
         res = MOCKSTUDENTDATA;
+        break;
+      case '/api/coaches':
+        res = MOCKCOACHDATA;
         break;
     }
     return Observable.of(res);
