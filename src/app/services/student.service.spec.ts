@@ -25,6 +25,8 @@ describe('StudentService', () => {
           expect(res[_i].student_id).toEqual(expectedStudentData[_i].student_id);
           expect(res[_i].student_name).toEqual(expectedStudentData[_i].student_name);
           expect(res[_i].age).toEqual(expectedStudentData[_i].age);
+          expect(res[_i].projects.length).toEqual(expectedStudentData[_i].projects.length);
+          expect(res[_i].projects[0].name).toEqual(expectedStudentData[_i].projects[0].name);
         }
       });
   }));
