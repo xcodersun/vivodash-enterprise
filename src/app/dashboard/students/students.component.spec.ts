@@ -11,6 +11,7 @@ import { MOCKSTUDENTDATA } from '../../test-data/mock-student-data';
 describe('StudentsComponent', () => {
   let component: StudentsComponent;
   let fixture: ComponentFixture<StudentsComponent>;
+  let studentData = MOCKSTUDENTDATA.json();
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -40,7 +41,6 @@ describe('StudentsComponent', () => {
     // Expect one talbe
     expect(tables.length).toBe(1);
 
-    let studentData = MOCKSTUDENTDATA.json();
     // The table has one header and three rows of student data.
     expect(tables[0].children.length).toBe(1 + studentData.length);
 
