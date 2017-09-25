@@ -23,7 +23,7 @@ describe('StudentService', () => {
         expect(res.length).toBe(expectedStudentData.length);
         for (var _i = 0; _i < res.length; _i++) {
           expect(res[_i].student_id).toEqual(expectedStudentData[_i].student_id);
-          expect(res[_i].student_name).toEqual(expectedStudentData[_i].student_name);
+          expect(res[_i].name).toEqual(expectedStudentData[_i].name);
           expect(res[_i].age).toEqual(expectedStudentData[_i].age);
           expect(res[_i].projects.length).toEqual(expectedStudentData[_i].projects.length);
           expect(res[_i].projects[0].name).toEqual(expectedStudentData[_i].projects[0].name);

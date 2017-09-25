@@ -3,7 +3,7 @@ export const MOCKSTUDENTDATA = {
     return [
       {
         student_id: 1,
-        student_name: 'alex',
+        name: 'alex',
         age: 10,
         projects: [
           {name: 'project1'}
@@ -11,7 +11,7 @@ export const MOCKSTUDENTDATA = {
       },
       {
         student_id: 2,
-        student_name: 'bill',
+        name: 'bill',
         age: 11,
         projects: [
           {name: 'project1'}
@@ -19,7 +19,7 @@ export const MOCKSTUDENTDATA = {
       },
       {
         student_id: 3,
-        student_name: 'charles',
+        name: 'charles',
         age: 12,
         projects: [
           {name: 'project1'}

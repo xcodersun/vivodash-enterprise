@@ -16,7 +16,7 @@ import { StudentService } from '../../services/student.service';
 })
 
 export class StudentsComponent implements OnInit {
-  displayedColumns = ['id', 'name', 'age', 'projects'];
+  displayedColumns = ['student_id', 'name', 'age', 'projects'];
   studentDatabase: StudentHttpDatabase | null;
   dataSource: StudentDataSource | null;
 
