@@ -12,7 +12,7 @@ import { CoachService } from '../../services/coach.service';
   templateUrl: './coaches.component.html',
 })
 export class CoachesComponent implements OnInit {
-  displayedColumns = ['id', 'name', 'age', 'projects'];
+  displayedColumns = ['coach_id', 'name', 'title', 'status'];
   coachDatabase: CoachHttpDatabase | null;
   dataSource: CoachDataSource | null;
 

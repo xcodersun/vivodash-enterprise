@@ -38,13 +38,13 @@ describe('StudentsComponent', () => {
     component.ngOnInit();
     let nativeElement = fixture.nativeElement;
     let tables = nativeElement.querySelectorAll('md-table');
-    // Expect one talbe
+    // Expect one table
     expect(tables.length).toBe(1);
 
     // The table has one header and three rows of student data.
     expect(tables[0].children.length).toBe(1 + studentData.length);
 
-    // The table header has 4 columns.
+    // Verify the table header. The table header has 4 columns.
     let tableHeader = tables[0].children[0];
     let tableHeaderColumns = tableHeader.children;
     expect(tableHeaderColumns.length).toBe(component.displayedColumns.length);
@@ -58,11 +58,11 @@ describe('StudentsComponent', () => {
       expect(cells.length).toBe(1);
       expect(cells[0].innerHTML.trim()).toEqual(idToContextMap[column]);
     }
+    // Verify the student rows.
     for (var i = 1, j = 0; i < tables[0].children.length ; i++, j++) {
       let studentRow = tables[0].children[i];
       let studentRowColums = studentRow.children;
       expect(studentRowColums.length).toBe(component.displayedColumns.length);
-      let studentDataKeyToValueMap = {};
       for (var key in studentData[j]) {
         let cells = studentRow.querySelectorAll('.cdk-column-'+key);
         if (key != 'projects') {

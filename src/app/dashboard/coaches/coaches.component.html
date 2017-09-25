@@ -4,26 +4,26 @@
       <!--- Note that these columns can be defined in any order.
             The actual rendered columns are set as a property on the row definition" -->
   
-      <!-- Student Id Column -->
-      <ng-container cdkColumnDef="id">
+      <!-- Coach Id Column -->
+      <ng-container cdkColumnDef="coach_id">
         <md-header-cell *cdkHeaderCellDef> 教练编号 </md-header-cell>
         <md-cell *cdkCellDef="let row"> {{ row.coach_id }} </md-cell>
       </ng-container>
   
-      <!-- Student Name Column -->
+      <!-- Coach Name Column -->
       <ng-container cdkColumnDef="name">
         <md-header-cell *cdkHeaderCellDef> 姓名 </md-header-cell>
         <md-cell *cdkCellDef="let row"> {{ row.name }} </md-cell>
       </ng-container>
   
-      <!-- Student Age Column -->
-      <ng-container cdkColumnDef="age">
+      <!-- Coach Title Column -->
+      <ng-container cdkColumnDef="title">
         <md-header-cell *cdkHeaderCellDef> 职称 </md-header-cell>
         <md-cell *cdkCellDef="let row"> {{ row.title | coachTitle }} </md-cell>
       </ng-container>
   
-      <!-- Student Age Column -->
-      <ng-container cdkColumnDef="projects">
+      <!-- Coach Status Column -->
+      <ng-container cdkColumnDef="status">
         <md-header-cell *cdkHeaderCellDef> 在岗情况 </md-header-cell>
         <md-cell *cdkCellDef="let row"> {{ row.status | coachStatus }}</md-cell>
       </ng-container>
